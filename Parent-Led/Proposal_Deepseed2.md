@@ -2,11 +2,9 @@
 # EduMoment – Parent-Led Daily Education Platform  
 ## Complete System Design (English & Traditional Chinese Versions)
 
----
 
 ## Part I. English Version
 
----
 
 ## 🌱 Concept: "Parent-Led" Daily Education Platform – EduMoment
 
@@ -16,7 +14,7 @@ The core idea is to move beyond scheduled lessons and create a system that helps
 - **Core Value Proposition:** Empower parents with the right tools, knowledge, and real-time support to confidently cultivate their child's cognitive, social-emotional, and practical life skills through daily interactions.  
 - **Key Differentiator:** Unlike static parenting blogs or forums, "EduMoment" uses agentic AI to create a **dynamic, responsive, and personalized** learning ecosystem for the *parent*, which then benefits the child. It doesn’t just provide information; it actively helps parents apply it in their unique family context.
 
----
+
 
 ## 🏗️ Online System Design: Agentic AI Ecosystem
 
