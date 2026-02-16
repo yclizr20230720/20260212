@@ -43,6 +43,7 @@ flowchart TD
     L[["Evidence-Based<br>Content Library"]] --> D
     M[["Family Calendar<br>& Location Services"]] --> C
 
+```
 ## 1. The Central Nervous System: Unified Data Platform (Concept Overview)
 
 All agentic AI systems require a **single source of truth** to be effective. This platform securely stores and connects all family data:
