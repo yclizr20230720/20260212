@@ -1,49 +1,47 @@
-
-# EduMoment – Parent-Led Daily Education Platform  
-## Complete System Design (English & Traditional Chinese Versions)
-
-
-## Part I. English Version
-
-
-## 🌱 Concept: "Parent-Led" Daily Education Platform – EduMoment
-
-The core idea is to move beyond scheduled lessons and create a system that helps parents turn everyday moments—like grocery shopping, bedtime, or a walk in the park—into educational opportunities. The platform, called **"EduMoment,"** acts as a personalized AI family coach.
-
-- **Target Audience:** Parents of children aged 2–12.  
-- **Core Value Proposition:** Empower parents with the right tools, knowledge, and real-time support to confidently cultivate their child's cognitive, social-emotional, and practical life skills through daily interactions.  
-- **Key Differentiator:** Unlike static parenting blogs or forums, "EduMoment" uses agentic AI to create a **dynamic, responsive, and personalized** learning ecosystem for the *parent*, which then benefits the child. It doesn’t just provide information; it actively helps parents apply it in their unique family context.
-
-
-
-## 🏗️ Online System Design: Agentic AI Ecosystem
-
-The technical architecture is a **multi-agent system** built on a **unified data platform**, inspired by agentic enterprise models. Each AI agent has a specific job and works autonomously to support the parent.
-
-### High-Level Agent Interaction Diagram
-
-```mermaid
-flowchart TD
-    A[["Parent User<br> (Mobile App / Web)"]] --> B[Unified Parent & Child<br>Data Platform]
-    
-    B --> C[Daily Coach Agent]
-    B --> D[Content Curator Agent]
-    B --> E[Conversation Starter Agent]
-    B --> F[Progress Scout Agent]
-    
-    C --> G[Personalized "Daily Moments" Ideas]
-    D --> H[Micro-Lessons & Activity Packs]
-    E --> I[Contextual Conversation Prompts]
-    F --> J[Growth Reports & Insights]
-    
-    G & H & I & J --> A
-    
-    K[Parent & Child Data<br>Age, Goals, Interests, Routines] --> B
-    L[Evidence-Based<br>Content Library] --> D
-    M[Family Calendar<br>& Location Services] --> C
-```
-
----
+# EduMoment – Parent-Led Daily Education Platform    
+## Complete System Design (English & Traditional Chinese Versions)  
+  
+---  
+  
+## Part I. English Version  
+  
+---  
+  
+## 🌱 Concept: "Parent-Led" Daily Education Platform – EduMoment  
+  
+The core idea is to move beyond scheduled lessons and create a system that helps parents turn everyday moments—like grocery shopping, bedtime, or a walk in the park—into educational opportunities. The platform, called **"EduMoment,"** acts as a personalized AI family coach.  
+  
+- **Target Audience:** Parents of children aged 2–12.    
+- **Core Value Proposition:** Empower parents with the right tools, knowledge, and real-time support to confidently cultivate their child's cognitive, social-emotional, and practical life skills through daily interactions.    
+- **Key Differentiator:** Unlike static parenting blogs or forums, "EduMoment" uses agentic AI to create a **dynamic, responsive, and personalized** learning ecosystem for the *parent*, which then benefits the child. It doesn’t just provide information; it actively helps parents apply it in their unique family context.  
+  
+---  
+  
+## 🏗️ Online System Design: Agentic AI Ecosystem  
+  
+The technical architecture is a **multi-agent system** built on a **unified data platform**, inspired by agentic enterprise models. Each AI agent has a specific job and works autonomously to support the parent.  
+  
+### High-Level Agent Interaction Diagram  
+  
+```mermaid  
+flowchart TD  
+    A[["Parent User<br> (Mobile App / Web)"]] --> B[Unified Parent & Child<br>Data Platform]  
+      
+    B --> C[Daily Coach Agent]  
+    B --> D[Content Curator Agent]  
+    B --> E[Conversation Starter Agent]  
+    B --> F[Progress Scout Agent]  
+      
+    C --> G[Personalized "Daily Moments" Ideas]  
+    D --> H[Micro-Lessons & Activity Packs]  
+    E --> I[Contextual Conversation Prompts]  
+    F --> J[Growth Reports & Insights]  
+      
+    G & H & I & J --> A  
+      
+    K[Parent & Child Data<br>Age, Goals, Interests, Routines] --> B  
+    L[Evidence-Based<br>Content Library] --> D  
+    M[Family Calendar<br>& Location Services] --> C  
 
 ## 1. The Central Nervous System: Unified Data Platform (Concept Overview)
 
