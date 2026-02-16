@@ -25,7 +25,7 @@ The technical architecture is a **multi-agent system** built on a **unified data
   
 ```mermaid  
 flowchart TD
-    A[["Parent User<br>(Mobile App / Web)"]] --> B[["Unified Parent & Child<br>Data Platform"]]
+    A[["Parent User<br>Mobile App / Web"]] --> B[["Unified Parent & Child<br>Data Platform"]]
     
     B --> C[["Daily Coach Agent"]]
     B --> D[["Content Curator Agent"]]
