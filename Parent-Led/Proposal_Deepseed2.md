@@ -1,4 +1,4 @@
-```markdown
+
 # EduMoment – Parent-Led Daily Education Platform  
 ## Complete System Design (English & Traditional Chinese Versions)
 
