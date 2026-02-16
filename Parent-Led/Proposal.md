@@ -15,7 +15,24 @@ The technical architecture would be a multi-agent system built on a unified data
 Here is a visual overview of how these agents interact within the system:
 
 ```mermaid
-Here is the detailed implementation architecture for the modern Human-Machine Interface of the "EduMoment" platform, including implementation tools, the application of Agentic AI, the development technology stack, and a system diagram, all presented in English.
+flowchart TD
+    A[["家長用戶<br> (行動應用程式/網頁)"]] --> B[統一家長與兒童<br>數據平台]
+    
+    B --> C[日常教練代理]
+    B --> D[內容策展代理]
+    B --> E[對話啟動代理]
+    B --> F[進程偵察代理]
+    
+    C --> G[個人化「日常靈感」]
+    D --> H[微型課程與活動包]
+    E --> I[情境式對話提示]
+    F --> J[成長報告與洞察]
+    
+    G & H & I & J --> A
+    
+    K[家長與兒童數據<br>年齡、目標、興趣、日常作息] --> B
+    L[基於實證的<br>內容庫] --> D
+    M[家庭行事曆<br>與位置服務] --> C
 
 ---
 
