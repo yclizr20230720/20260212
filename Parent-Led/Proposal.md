@@ -15,24 +15,228 @@ The technical architecture would be a multi-agent system built on a unified data
 Here is a visual overview of how these agents interact within the system:
 
 ```mermaid
-flowchart TD
-    A[["Parent User<br> (Mobile App/Web)"]] --> B[Unified Parent & Child<br>Data Platform]
+Here is the detailed implementation architecture for the modern Human-Machine Interface of the "EduMoment" platform, including implementation tools, the application of Agentic AI, the development technology stack, and a system diagram, all presented in English.
+
+---
+
+## Modern Human-Machine Interface Implementation Architecture: Building a Generative UI-Driven Family Conversation Partner
+
+### Core Design Philosophy: Evolving from "Chatbot" to "Interface Generation Engine"
+
+Traditional chat interfaces only present AI responses as text bubbles, which is insufficient for the complexities of parenting and child development scenarios. Our core implementation leverages a **Generative UI** architecture—where AI agents generate not just text, but dynamically create the most suitable interactive interface for the current context.
+
+For example, when a parent asks, "I want to plan a week of focus-building games for my 4-year-old," the system won't just return a text suggestion. It will generate an interactive weekly planner containing **draggable activity cards, timer buttons, and a sticker collection area** for completed tasks.
+
+### High-Level System Architecture Diagram
+
+Below is the overall architecture for the "EduMoment" modern human-machine interface, adopting an **event-driven Interaction Manager pattern** that separates decision logic from interface rendering:
+
+```mermaid
+flowchart TB
+    subgraph User["Client Side (Multi-Platform)"]
+        direction TB
+        P[Parent Mode<br/>Web / Mobile App]
+        C[Child Mode<br/>Tablet / Smart Speaker]
+    end
+
+    subgraph A2UI["A2UI Rendering Engine"]
+        direction LR
+        CR[Component Registry<br/>Safe Component Catalog]
+        RE[Rendering Engine<br/>React / Flutter / Lit]
+        SM[State Sync<br/>Real-time Updates]
+    end
+
+    subgraph AGUI["AG-UI Protocol Layer"]
+        direction LR
+        WS[WebSocket Bidirectional]
+        SS[Shared State]
+        EV[Event Bus]
+    end
+
+    subgraph InteractionManager["Interaction Manager"]
+        direction TB
+        IM[Core Coordinator]
+        SM_IM[Session Memory]
+        CE[Context Engine]
+    end
+
+    subgraph AgentMesh["Agent Mesh"]
+        direction TB
+        DC[Daily Coach Agent]
+        CC[Content Curator Agent]
+        CS[Conversation Starter Agent]
+        PS[Progress Scout Agent]
+    end
+
+    subgraph BackendServices["Backend Infrastructure"]
+        direction TB
+        UD[Unified Data Platform<br/>Family Intelligence Graph]
+        LLM[LLM Services<br/>Gemini / GPT]
+        VDB[Vector Database<br/>Contextual Memory]
+    end
+
+    %% Connections
+    User --> A2UI
+    A2UI <--> AGUI
+    AGUI <--> InteractionManager
+    InteractionManager --> AgentMesh
+    AgentMesh <--> BackendServices
+    BackendServices -.-> UD
     
-    B --> C[The Daily Coach Agent]
-    B --> D[The Content Curator Agent]
-    B --> E[The Conversation Starter Agent]
-    B --> F[The Progress Scout Agent]
+    %% Styling
+    classDef client fill:#e1f5fe,stroke:#01579b
+    classDef a2ui fill:#fff3e0,stroke:#e65100
+    classDef protocol fill:#e8f5e8,stroke:#1b5e20
+    classDef manager fill:#f3e5f5,stroke:#4a148c
+    classDef agents fill:#ffebee,stroke:#b71c1c
+    classDef backend fill:#e0e0e0,stroke:#263238
     
-    C --> G[Personalized "Moment Ideas"]
-    D --> H[Micro-Lessons & Activity Kits]
-    E --> I[Contextual Conversation Prompts]
-    F --> J[Growth Reports & Insights]
-    
-    G & H & I & J --> A
-    
-    K[Parent & Child Data<br>Age, Goals, Interests, Daily Routine] --> B
-    L[Evidence-based<br>Content Library] --> D
-    M[Family Calendar<br>& Location Services] --> C
+    class User client
+    class A2UI a2ui
+    class AGUI protocol
+    class InteractionManager manager
+    class AgentMesh agents
+    class BackendServices backend
+```
+
+### Core Architecture Components Explained
+
+#### 1. Client Side: Dual-Mode Design
+
+- **Parent Mode**: Web / Mobile App, supporting complex dashboards, child progress analysis, and settings management
+- **Child Mode**: Tablet / Smart Speaker, focused on large icons and voice interaction, featuring a "Virtual Buddy" character interface
+
+#### 2. A2UI Rendering Engine: Safe and Dynamic Interface Generation
+
+A2UI is an open project initiated by Google specifically addressing the challenges of agent-generated UI. Its core design principles are:
+
+- **Security First**: UI is transmitted as **declarative data formats**, not executable code. The client maintains a "Trusted Component Catalog," and agents can only request components from this catalog (such as Card, Button, Chart), completely preventing UI injection attacks
+- **LLM-Friendly**: UI is represented as a flat list of components with ID references, making it easy for LLMs to generate incrementally and achieve progressive rendering
+- **Framework Agnostic**: The same A2UI JSON can render across different frameworks like React, Flutter, and SwiftUI
+
+**Implementation Example**: When a child asks "Why is the sky blue?", the agent's response might include:
+
+```json
+{
+  "components": [
+    { "id": "c1", "type": "Card", "props": { "title": "The Magic of Light" } },
+    { "id": "c2", "type": "Image", "props": { "url": "scattering_diagram.png" } },
+    { "id": "c3", "type": "Button", "props": { "text": "Try an Experiment", "action": "show_experiment" } }
+  ]
+}
+```
+
+#### 3. AG-UI Protocol Layer: The Communication Bridge Between Agents and Frontend
+
+AG-UI is an open protocol designed to standardize direct communication between agents and users, supporting rich UI interactions. Key features:
+
+- **Shared State**: Both frontend and backend agents share an understanding of the application state, enabling agents to react to user actions in the UI and vice versa
+- **Human-in-the-Loop**: Users can supervise, approve, or correct agent executions, ensuring safety and control
+- **Frontend Tools**: Agents can interact directly with the frontend, such as filling forms, navigating pages, or annotating documents
+
+#### 4. Interaction Manager: Event-Driven Decision Core
+
+Referencing NVIDIA's **Interaction Manager architecture pattern**, we separate decision logic from sensor input and action execution:
+
+- **Event-Driven**: All user actions (voice, clicks, gestures) are converted into events, with the Interaction Manager determining how the system should respond
+- **Context-Aware**: Integrates information from the Unified Data Platform to understand the current family context
+- **Multi-Agent Coordination**: Coordinates the work of four core agents, reducing the cognitive burden on the user
+
+### Deep Application Strategy for Agentic AI
+
+#### 1. Mixed-Initiative Design Patterns
+
+Based on the HAX framework, we adopt proven mixed-initiative design patterns:
+
+- **Intent Preview**: Allow users to preview and confirm actions before the agent executes them. For example, before sending a daily parenting tip, display: "Tomorrow at 8:00 AM, I'll give you a math game idea for grocery shopping"
+- **Iterative Alignment**: Allow users to gradually adjust the agent's behavior. For instance, a parent could say, "This activity is too difficult for my child, make it simpler," and the agent will adjust and regenerate in real-time
+- **Trust Repair**: When the agent makes a mistake, provide clear explanations and correction mechanisms
+
+#### 2. Multi-Agent Narrative Consistency
+
+To ensure a consistent experience when family members interact with different agents, we adopt the **Behavioral Proxy** concept to coordinate all agent activities, ensuring:
+
+- **Tone Consistency**: Regardless of which agent responds, maintain the warm, professional "Family Coach" tone
+- **Memory Consistency**: When a child asks a question in Children's Mode during the day, the agent can naturally reference it when the parent inquires in the evening
+
+### Detailed Technology Stack Planning
+
+#### Frontend Technology Stack
+
+| Component | Technology Choice | Description |
+|-----------|-------------------|-------------|
+| **Web Frontend** | Next.js + React + TypeScript | Supports SSR, excellent developer experience |
+| **Mobile App** | Flutter | Cross-platform, single codebase for iOS/Android, integrates well with A2UI |
+| **Child Mode** | Flutter for Web / Tablet | Focused on large icons, voice interaction |
+| **UI Component Library** | CopilotKit React Components | Provides out-of-the-box conversational interfaces, sidebars, etc. |
+| **Generative UI** | A2UI + AG-UI Client | Handles dynamic interface rendering |
+| **State Management** | Redux Toolkit / Riverpod | Manages local state |
+| **Voice Interface** | Web Speech API / Flutter TTS | Voice input and output |
+
+#### Backend Technology Stack
+
+| Component | Technology Choice | Description |
+|-----------|-------------------|-------------|
+| **API Gateway** | Node.js + Express / FastAPI | Handles request routing |
+| **Real-time Communication** | WebSocket + Socket.io | Enables AG-UI real-time bidirectional communication |
+| **LLM Services** | Google ADK + Gemini / OpenAI | ADK provides multi-step planning, tool use, state management |
+| **Agent Framework** | LangChain / LangGraph | Builds multi-agent collaboration workflows |
+| **Vector Database** | Pinecone / Weaviate | Stores contextual memory, past conversations |
+| **Unified Data Platform** | PostgreSQL + Neo4j | Relational DB + Graph DB, builds "Family Intelligence Graph" |
+| **Data Processing** | Apache Kafka | Handles real-time event streams |
+
+#### DevOps & Infrastructure
+
+| Component | Technology Choice |
+|-----------|-------------------|
+| **Containerization** | Docker + Kubernetes |
+| **CI/CD** | GitHub Actions |
+| **Monitoring** | Prometheus + Grafana |
+| **Logging** | ELK Stack |
+
+### Detailed Implementation Roadmap
+
+#### Phase 1: MVP (3 Months)
+- Establish basic architecture: Next.js frontend + ADK backend
+- Implement single agent (Daily Coach) text-based conversational interface
+- Integrate CopilotKit React components for rapid conversational UI development
+- Basic user authentication and data storage
+
+#### Phase 2: Voice & Generative UI (2 Months)
+- Integrate Web Speech API for voice input/output
+- Implement A2UI for simple generative cards (e.g., activity suggestion cards)
+- Establish unified AI "tone of voice guide"
+- Develop parent-facing conversation summary dashboard
+
+#### Phase 3: Child Mode & Multi-Agent (3 Months)
+- Develop Flutter-based Child Mode
+- Launch "Dino Coach" virtual buddy character
+- Implement full collaboration between four core agents
+- Introduce MCP Apps standard for richer interactive UI
+
+#### Phase 4: Emotional Intelligence & Personalization (2 Months)
+- Integrate sentiment analysis to detect emotional cues in user voice/text
+- Implement personalized memory: agents remember children's preferences and interests
+- Introduce mixed-initiative design patterns (Intent Preview, Iterative Alignment)
+- Full launch
+
+### Security and Privacy Design
+
+- **On-Device Processing First**: Children's voice data processed locally on device, only anonymized analysis results uploaded
+- **Component Security Catalog**: A2UI's core security mechanism—client maintains a whitelist of trusted components
+- **Data Minimization**: Only collect data necessary for core functionality
+- **Transparency Dashboard**: Parents can view data usage at any time and control sharing settings
+
+### Summary
+
+The core advantages of this modern human-machine interface implementation architecture are:
+
+1.  **Generative UI**: The interface is no longer static but dynamically generated based on conversational context
+2.  **Standardized Protocols**: Adopts open standards like A2UI and AG-UI, avoiding vendor lock-in
+3.  **Event-Driven Architecture**: Follows NVIDIA's Interaction Manager pattern for flexible multi-agent collaboration
+4.  **Security First**: Component security catalog ensures dynamically generated interfaces don't introduce security risks
+
+This architecture enables the "EduMoment" platform to truly realize the vision of being a **"warm family conversation partner"**—where technology recedes into the background and interaction returns to its most natural state.
 ```
 
 The following sections break down the core components of this design.
