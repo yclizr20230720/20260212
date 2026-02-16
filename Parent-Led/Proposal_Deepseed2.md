@@ -24,24 +24,24 @@ The technical architecture is a **multi-agent system** built on a **unified data
 ### High-Level Agent Interaction Diagram  
   
 ```mermaid  
-flowchart TD  
-    A[["Parent User<br> (Mobile App / Web)"]] --> B[Unified Parent & Child<br>Data Platform]  
-      
-    B --> C[Daily Coach Agent]  
-    B --> D[Content Curator Agent]  
-    B --> E[Conversation Starter Agent]  
-    B --> F[Progress Scout Agent]  
-      
-    C --> G[Personalized "Daily Moments" Ideas]  
-    D --> H[Micro-Lessons & Activity Packs]  
-    E --> I[Contextual Conversation Prompts]  
-    F --> J[Growth Reports & Insights]  
-      
-    G & H & I & J --> A  
-      
-    K[Parent & Child Data<br>Age, Goals, Interests, Routines] --> B  
-    L[Evidence-Based<br>Content Library] --> D  
-    M[Family Calendar<br>& Location Services] --> C  
+flowchart TD
+    A[["Parent User<br>(Mobile App / Web)"]] --> B[["Unified Parent & Child<br>Data Platform"]]
+    
+    B --> C[["Daily Coach Agent"]]
+    B --> D[["Content Curator Agent"]]
+    B --> E[["Conversation Starter Agent"]]
+    B --> F[["Progress Scout Agent"]]
+    
+    C --> G[["Personalized 'Daily Moments' Ideas"]]
+    D --> H[["Micro-Lessons & Activity Packs"]]
+    E --> I[["Contextual Conversation Prompts"]]
+    F --> J[["Growth Reports & Insights"]]
+    
+    G & H & I & J --> A
+    
+    K[["Parent & Child Data<br>Age, Goals, Interests, Routines"]] --> B
+    L[["Evidence-Based<br>Content Library"]] --> D
+    M[["Family Calendar<br>& Location Services"]] --> C
 
 ## 1. The Central Nervous System: Unified Data Platform (Concept Overview)
 
