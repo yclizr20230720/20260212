@@ -1,0 +1,5 @@
+[1/7] Loading 9 FDC files ...
+[warn] 39 wafers unlabeled - excluded (37583 rows)
+Need at least one BAD and one GOOD wafer - check --bad/--good/--labels.
+PS E:\DAP\2026\FAB Operation\FAB_Case_Analysis>
+
